@@ -1,0 +1,58 @@
+digraph G {
+
+  // general config
+  rankdir=BT
+
+
+  // capabilities
+  node [style=filled color=black fontcolor=white]
+  GoToSpace [label="Go to space"]
+
+
+  // vehicles
+  node [style=filled color=grey62 fontcolor=black]
+
+  Rocket -> GoToSpace
+
+
+  // topics
+  node [style=solid color=black]
+
+  subgraph cluster_math {
+
+    Algebra -> {Analysis, LinearAlgebra, Topology}
+    Analysis -> {Calculus, DiscreteMathematics}
+    Arithmetic -> {Algebra, Probability, Statistics}
+    Calculus -> {DifferentialEquations, NumericalAnalysis, DiscreteMathematics}
+    CombinatorialGameTheory [label="Combinatorial Game Theory"]
+    CombinatorialGameTheory 
+    Cryptography
+    DifferentialEquations [label="Differential Equations"]
+    DifferentialEquations -> {NumericalAnalysis, Topology}
+    DiscreteMathematics [label="Discrete Mathematics"]
+    DiscreteMathematics -> {GraphTheory, NumericalAnalysis, Cryptography, CombinatorialGameTheory}
+    Geometry -> {Calculus, NumericalAnalysis, Trigonometry, Topology}
+    GraphTheory [label="Graph Theory"]
+    GraphTheory 
+    Infinity -> {Arithmetic}
+    LinearAlgebra [label="Linear Algebra"]
+    LinearAlgebra -> {DifferentialEquations}
+    NumberTheory [label="Number Theory"]
+    NumberTheory -> {LinearAlgebra, Algebra}
+    NumericalAnalysis [label="Numerical Analysis"]
+    NumericalAnalysis -> {GraphTheory}
+    OrderOfOperations [label="Order of Operations"]
+    OrderOfOperations -> {Arithmetic, Algebra}
+    Probability -> {CombinatorialGameTheory}
+    Statistics -> {CombinatorialGameTheory}
+    Topology
+    Trigonometry -> {DifferentialEquations}
+
+  }
+
+
+  // relationships
+  {Arithmetic, Algebra, Geometry, NumericalAnalysis, DifferentialEquations} -> Rocket [style=dotted]
+
+}
+
