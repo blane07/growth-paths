@@ -1,2 +1,4 @@
 # growth-paths
-Visualization of goals, skills, and knowledge
+
+Visualization of knowledge and skills required for capabilies
+
