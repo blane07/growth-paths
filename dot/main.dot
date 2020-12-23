@@ -3,28 +3,34 @@ digraph G {
   // general config
   rankdir = BT
   compound = true
-  graph [labeljust=l fontsize=28]
+  graph [labeljust=l fontsize=20]
 
 
   // capabilities
-  node [style=filled color=black fontcolor=white fontsize=22]
+  node [style=filled color=black fontcolor=white fontsize=24]
 
-  GoToSpace [label="Go to Space"]
-  EthicalHacker [label="Ethically Hack into a Server"]
+  TravelToSpace [label="Travel to Space"]
+  TellAStory [label="Tell a Story"]
+  EthicalHacker [label="Ethical Hacker"]
+  WhatHappenedBeforeIWasBorn [label="What Happened Before\nI Was Born?"]
+  PredictingTheFuture[label="Predicting the Future"]
+  UrbanSkillsTraining [label="Urban Skills Training"]
 
-  {rank=same GoToSpace EthicalHacker}
+  {rank=same TravelToSpace TellAStory EthicalHacker WhatHappenedBeforeIWasBorn PredictingTheFuture UrbanSkillsTraining}
 
 
   // vehicles
-  node [style=filled color=yellow fontcolor=black fontsize=18]
+  node [style=filled color=yellow fontcolor=black fontsize=16]
 
-  Rocket -> GoToSpace
+  Rocket -> TravelToSpace
+  {Book, Speech} -> TellAStory
+  {Website} -> EthicalHacker
 
-  {rank=same Rocket}
+  {rank=same Rocket Book Speech Website}
 
 
   // topics
-  node [style=solid color=black fontcolor=black]
+  node [style=solid color=black fontcolor=black fontsize=6]
 
   subgraph cluster_math {
     label = "Math"
@@ -63,6 +69,7 @@ digraph G {
 
   {Arithmetic, Algebra, Calculus, Geometry, NumericalAnalysis, DifferentialEquations} -> Rocket [color="#91BDFF" style=dashed]
 
+
   subgraph cluster_science {
     label = "Science"
     href = "https://en.wikipedia.org/wiki/Branches_of_science#Physical_science"
@@ -70,13 +77,13 @@ digraph G {
 
     Chemistry -> {Thermodynamics}
     {Algebra} -> Chemistry [color="#91BDFF" style=dashed]
-//    ClassicalMechanics [label="Classical Mechanics"]
-//    ClassicalMechanics -> {RelativisticMechanics}
+    ClassicalMechanics [label="Classical Mechanics"]
+    ClassicalMechanics -> {RelativisticMechanics}
 //    Electromagnetism
     MaterialsScience [label="Materials Science"]
     MaterialsScience 
-//    RelativisticMechanics [label="Relativistic Mechanics"]
-//    RelativisticMechanics 
+    RelativisticMechanics [label="Relativistic Mechanics"]
+    RelativisticMechanics 
     Thermodynamics -> {MaterialsScience}
     {Calculus} -> Thermodynamics [color="#91BDFF" style=dashed]
 //    QuantumMechanics [label="Quantum Mechanics"]
@@ -84,6 +91,26 @@ digraph G {
   }
 
   {Chemistry, MaterialsScience, Thermodynamics} -> Rocket [color="#57FF57" style=dashed]
+
+
+  subgraph cluster_engineering {
+    label = "Engineering"
+    href = "http://bulletin.iit.edu/undergraduate/courses/mmae/"
+    fontcolor = "#FF4DC4"
+
+    Statics
+    {ClassicalMechanics} -> Statics [color="#57FF57" style=dashed]
+
+  }
+
+  subgraph cluster_programming {
+    label = "Programming"
+    href = ""
+    fontcolor = "#CC0000"
+
+
+
+  }
 
 }
 
