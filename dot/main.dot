@@ -1,24 +1,35 @@
 digraph G {
 
   // general config
-  rankdir=BT
+  rankdir = BT
+  compound = true
+  graph [labeljust=l fontsize=28]
 
 
   // capabilities
-  node [style=filled color=black fontcolor=white]
-  GoToSpace [label="Go to space"]
+  node [style=filled color=black fontcolor=white fontsize=22]
+
+  GoToSpace [label="Go to Space"]
+  EthicalHacker [label="Ethically Hack into a Server"]
+
+  {rank=same GoToSpace EthicalHacker}
 
 
   // vehicles
-  node [style=filled color=grey62 fontcolor=black]
+  node [style=filled color=yellow fontcolor=black fontsize=18]
 
   Rocket -> GoToSpace
 
+  {rank=same Rocket}
+
 
   // topics
-  node [style=solid color=black]
+  node [style=solid color=black fontcolor=black]
 
   subgraph cluster_math {
+    label = "Math"
+    fontcolor = "#91BDFF"
+    href = "https://simple.wikipedia.org/wiki/List_of_mathematics_topics"
 
     Algebra -> {Analysis, LinearAlgebra, Topology}
     Analysis -> {Calculus, DiscreteMathematics}
@@ -50,9 +61,29 @@ digraph G {
 
   }
 
+  {Arithmetic, Algebra, Calculus, Geometry, NumericalAnalysis, DifferentialEquations} -> Rocket [color="#91BDFF" style=dashed]
 
-  // relationships
-  {Arithmetic, Algebra, Geometry, NumericalAnalysis, DifferentialEquations} -> Rocket [style=dotted]
+  subgraph cluster_science {
+    label = "Science"
+    href = "https://en.wikipedia.org/wiki/Branches_of_science#Physical_science"
+    fontcolor = "#57FF57"
+
+    Chemistry -> {Thermodynamics}
+    {Algebra} -> Chemistry [color="#91BDFF" style=dashed]
+//    ClassicalMechanics [label="Classical Mechanics"]
+//    ClassicalMechanics -> {RelativisticMechanics}
+//    Electromagnetism
+    MaterialsScience [label="Materials Science"]
+    MaterialsScience 
+//    RelativisticMechanics [label="Relativistic Mechanics"]
+//    RelativisticMechanics 
+    Thermodynamics -> {MaterialsScience}
+    {Calculus} -> Thermodynamics [color="#91BDFF" style=dashed]
+//    QuantumMechanics [label="Quantum Mechanics"]
+
+  }
+
+  {Chemistry, MaterialsScience, Thermodynamics} -> Rocket [color="#57FF57" style=dashed]
 
 }
 
