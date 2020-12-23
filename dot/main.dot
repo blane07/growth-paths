@@ -13,10 +13,10 @@ digraph G {
   TellAStory [label="Tell a Story"]
   EthicalHacker [label="Ethical Hacker"]
   WhatHappenedBeforeIWasBorn [label="What Happened Before\nI Was Born?"]
-  PredictingTheFuture[label="Predicting the Future"]
+  PredictTheFuture[label="Predict the Future"]
   UrbanSkillsTraining [label="Urban Skills Training"]
 
-  {rank=same TravelToSpace TellAStory EthicalHacker WhatHappenedBeforeIWasBorn PredictingTheFuture UrbanSkillsTraining}
+  {rank=same TravelToSpace TellAStory EthicalHacker WhatHappenedBeforeIWasBorn PredictTheFuture UrbanSkillsTraining}
 
 
   // vehicles
@@ -105,10 +105,15 @@ digraph G {
 
   subgraph cluster_programming {
     label = "Programming"
-    href = ""
+//    href = ""
     fontcolor = "#CC0000"
 
-
+    Unix -> Python
+    HTML -> {CSS, Elm}
+    CSS -> {Elm}
+    SQL
+    Elm
+    Python
 
   }
 
