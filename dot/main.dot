@@ -11,12 +11,12 @@ digraph G {
 
   TravelToSpace [label="Travel to Space"]
   TellAStory [label="Tell a Story"]
-  EthicalHacker [label="Ethical Hacker"]
-  WhatHappenedBeforeIWasBorn [label="What Happened Before\nI Was Born?"]
-  PredictTheFuture[label="Predict the Future"]
-  UrbanSkillsTraining [label="Urban Skills Training"]
+  EthicalHacking [label="Ethical Hacking"]
+  WhatHappened [label="What Happened?"]
+  PredictTheFuture [label="Predict the Future"]
+  SurvivalSkills [label="Survival Skills"]
 
-  {rank=same TravelToSpace TellAStory EthicalHacker WhatHappenedBeforeIWasBorn PredictTheFuture UrbanSkillsTraining}
+  {rank=same TravelToSpace TellAStory EthicalHacking WhatHappened PredictTheFuture SurvivalSkills}
 
 
   // vehicles
@@ -24,7 +24,7 @@ digraph G {
 
   Rocket -> TravelToSpace
   {Book, Speech} -> TellAStory
-  {Website} -> EthicalHacker
+  {Website} -> EthicalHacking
 
   {rank=same Rocket Book Speech Website}
 
